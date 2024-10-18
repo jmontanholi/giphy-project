@@ -1,0 +1,19 @@
+@use "config" as *;
+
+.content {
+  display: grid;
+  grid-template-rows: repeat(3, calc(100vh - 11rem));
+  row-gap: 2rem;
+  background-color: $grey;
+  padding: 1.5rem 2rem;
+
+  section {
+    border: 1px solid red;
+  }
+
+  @media screen and (min-width: 800px) {
+    height: calc(100vh - 5rem);
+    grid-template-rows: 1fr;
+    grid-template-columns: 20rem 1fr minmax(20rem, 0.3fr);
+  }
+}

@@ -1,0 +1,55 @@
+@use "../config" as *;
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+  position: sticky;
+  top: 0;
+
+  &__title {
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  @media screen and (min-width: 800px) {
+    grid-template-rows: 1fr;
+    height: 5rem;
+
+    &__title {
+      text-align: left;
+    }
+  }
+}
+
+.navbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  &__link--active,
+  &__link--active:link,
+  &__link--active:visited {
+    color: $active;
+  }
+
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+}

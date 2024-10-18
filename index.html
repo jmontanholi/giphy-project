@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giphy</title>
+    <script
+      src="https://kit.fontawesome.com/1916a1c8a0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/main.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">giphy project</h1>
+      <!-- NavBar -->
+      <nav role="navigation" class="navbar">
+        <a class="navbar__link navbar__link--active" href="#randomSection">
+          <i
+            class="fa-regular fa-image navbar__svg"
+            title="navigate to random gif section"
+          >
+          </i>
+        </a>
+        <a class="navbar__link" href="#searchSection">
+          <i
+            class="fa-solid fa-magnifying-glass navbar__svg"
+            title="navigate to gif search section"
+          >
+          </i>
+        </a>
+        <a class="navbar__link" href="#trendingSection">
+          <i
+            class="fa-regular fa-thumbs-up navbar__svg"
+            title="navigate to trending gifs section"
+          >
+          </i>
+        </a>
+      </nav>
+    </header>
+    <!-- Main -->
+    <main class="content">
+      <!-- Random -->
+      <section id="randomSection" class="section randomSection">
+        <h2 class="sectionTitle randomSection__title">Random</h2>
+        <div class="randomSection__imagePlaceholder"></div>
+        <button type="button" class="btn randomSection__btn">
+          <i class="fa-solid fa-repeat" aria-hidden="true"></i> next
+        </button>
+      </section>
+      <!-- Search -->
+      <section id="searchSection" class="section searchSection">
+        <h2 class="sectionTitle searchSection__title">Finder</h2>
+        <form role="search" class="searchForm" action="#">
+          <label class="searchForm__label" for="search"
+            >Search for a GIPHY</label
+          >
+          <input
+            aria-label="search for a gif from GIPHY"
+            class="searchForm__textInput"
+            id="search"
+            name="search"
+            type="text"
+          />
+          <button type="submit" class="btn searchForm__btn">
+            <i
+              class="fa-solid fa-magnifying-glass navbar__svg"
+              aria-hidden="true"
+            ></i>
+            Search
+          </button>
+        </form>
+        <ul class="resultsContainer"></ul>
+      </section>
+      <!-- Trending -->
+      <section id="trendingSection" class="section trendingSection">
+        <h2 class="sectionTitle trendingSection__title">Trending</h2>
+        <ul class="trendingContainer"></ul>
+      </section>
+    </main>
+  </body>
+</html>
