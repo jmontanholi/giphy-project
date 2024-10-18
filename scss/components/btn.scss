@@ -1,0 +1,20 @@
+@use "../colors.scss" as *;
+
+.btn {
+  border: 1px solid $purple-navy;
+  color: $purple-navy;
+  padding: 1rem 0;
+  border-radius: $border-radius-default;
+  transition: 0.3s all, box-shadow 1ms;
+
+  &:hover {
+    background-color: $transparent-purple-navy;
+    color: $yankees-blue;
+    border: 1px solid $yankees-blue;
+    cursor: pointer;
+  }
+
+  &:active {
+    box-shadow: inset 5px 5px 15px $transparent-purple-navy;
+  }
+}

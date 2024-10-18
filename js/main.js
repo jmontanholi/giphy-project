@@ -3,6 +3,7 @@ import { API_KEY, BASE_API_URL } from "./configFile.js";
 const randomGifPlaceholder = document.querySelector(
   ".randomSection__gifPlaceholder"
 );
+const randomNextBtn = document.querySelector(".randomSection__btn");
 
 const generateGifMarkup = function (data) {
   if (!data) return "";
@@ -54,9 +55,7 @@ const renderRandom = async function () {
   try {
     skeleton.insertAdjacentHTML("beforeend", generateLoadingSpinner());
 
-    const response = await fetch(
-      `${BASE_API_URL}/random?api_key=${API_KEY}231`
-    );
+    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}22`);
 
     if (!response.ok) {
       const { meta: errorData } = await response.json();
@@ -65,15 +64,15 @@ const renderRandom = async function () {
 
     const { data } = await response.json();
 
-    // randomGifPlaceholder.insertAdjacentHTML(
-    //   "beforeend",
-    //   generateGifMarkup(data)
-    // );
+    skeleton.remove();
+    randomGifPlaceholder.insertAdjacentHTML(
+      "beforeend",
+      generateGifMarkup(data)
+    );
   } catch (error) {
     skeleton.insertAdjacentHTML("beforeend", generateErrorMessage());
   } finally {
     skeleton.querySelector(".loading").remove();
   }
 };
-
 renderRandom();

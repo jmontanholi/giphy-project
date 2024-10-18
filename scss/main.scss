@@ -2,8 +2,12 @@
 @use "base";
 @use "layout";
 
+// Sections
+@use "./sections/randomSection.scss";
+
 // Components
 @use "./components/header";
 @use "./components/skeleton";
 @use "./components/loading";
 @use "./components/error";
+@use "./components/btn";
