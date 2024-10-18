@@ -55,7 +55,7 @@ const renderRandom = async function () {
   try {
     skeleton.insertAdjacentHTML("beforeend", generateLoadingSpinner());
 
-    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}2`);
+    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}`);
 
     if (!response.ok) {
       const { meta: errorData } = await response.json();
