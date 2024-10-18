@@ -1,3 +1,5 @@
+@use "config" as *;
+
 *,
 *::before,
 *::after {
@@ -11,4 +13,5 @@ html {
   font-size: 62.5%; // 10px
   scroll-behavior: smooth;
   scroll-padding-top: 9rem;
+  font-family: $primary-font;
 }

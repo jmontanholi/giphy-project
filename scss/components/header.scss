@@ -4,6 +4,7 @@
   display: grid;
   grid-template-rows: 1fr 0.5fr;
   position: sticky;
+  z-index: $header-zindex;
   top: 0;
 
   &__title {

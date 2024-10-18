@@ -39,6 +39,15 @@ const generateLoadingSpinner = function () {
   `;
 };
 
+const generateErrorMessage = function () {
+  return `
+    <div class="error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>Oh no, something went snap!</p>
+    </div>
+  `;
+};
+
 const renderRandom = async function () {
   const skeleton = randomGifPlaceholder.querySelector(".gifSkeleton");
 
@@ -49,10 +58,10 @@ const renderRandom = async function () {
       `${BASE_API_URL}/random?api_key=${API_KEY}231`
     );
 
-    // if (!response.ok) {
-    //   const { meta: errorData } = await response.json();
-    //   throw Error(JSON.stringify(errorData));
-    // }
+    if (!response.ok) {
+      const { meta: errorData } = await response.json();
+      throw Error(JSON.stringify(errorData));
+    }
 
     const { data } = await response.json();
 
@@ -61,10 +70,7 @@ const renderRandom = async function () {
     //   generateGifMarkup(data)
     // );
   } catch (error) {
-    // TODO: Show error message instead of loading
-    console.log(error);
-
-    console.log("CATCH", JSON.parse(error.message));
+    skeleton.insertAdjacentHTML("beforeend", generateErrorMessage());
   } finally {
     skeleton.querySelector(".loading").remove();
   }

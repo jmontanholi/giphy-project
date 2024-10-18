@@ -1,0 +1,18 @@
+@use "../config.scss" as *;
+
+.error {
+  border: 1px dashed $red;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  color: $red;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+
+  p,
+  i {
+    color: inherit;
+  }
+}

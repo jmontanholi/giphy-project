@@ -13,8 +13,18 @@
 
   @media screen and (min-width: 800px) {
     height: calc(100vh - 7rem);
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(30rem, 1fr) 1fr;
+
+    section:nth-of-type(1) {
+      border-right: 1px solid $dark-grey;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: calc(100vh - 7rem);
     grid-template-rows: 1fr;
-    grid-template-columns: 20rem 1fr minmax(20rem, 0.3fr);
+    grid-template-columns: 30rem 1fr minmax(20rem, 0.3fr);
 
     section:not(:last-of-type) {
       border-right: 1px solid $dark-grey;
@@ -26,4 +36,22 @@
   display: grid;
   align-content: start;
   row-gap: 2rem;
+
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+.searchSection {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    grid-column: 1 / -1;
+  }
+}
+
+.trendingSection {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+  }
 }
