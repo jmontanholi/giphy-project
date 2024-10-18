@@ -20,3 +20,7 @@ To get a local copy up and running follow these simple example steps.
 ### Install
 
 ### Usage
+
+#TODO
+
+- Clean up magic numbers in scss files (change colors.scss to variables.scss and put magic numbers there with meaningfull values)
