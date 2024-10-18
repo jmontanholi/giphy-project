@@ -3,7 +3,17 @@
 .gifSkeleton {
   width: 100%;
   height: 40vh;
-  border: 1px solid $dark-grey;
+  border: 1px solid $purple-navy;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  row-gap: 1rem;
+
+  .skeleton__svg {
+    font-size: 4rem;
+    color: $purple-navy;
+  }
 
   @media screen and (min-width: 800px) {
     height: 20vh;

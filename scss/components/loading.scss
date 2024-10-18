@@ -1,0 +1,88 @@
+@use "../config.scss" as *;
+
+.loading {
+  border: 1px dashed $purple-navy;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  color: $yankees-blue;
+
+  p {
+    color: inherit;
+  }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  animation: 1.5s infinite rotate linear;
+
+  &__bar {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 5px;
+      background-color: $yankees-blue;
+    }
+
+    &--1::after {
+      top: 2.5px;
+      left: 7.5px;
+      transform: rotate(90deg);
+    }
+
+    &--2::after {
+      top: 4.5px;
+      right: 2.25px;
+      transform: rotate(-45deg);
+    }
+
+    &--3::after {
+      top: 9.5px;
+      right: 0;
+    }
+
+    &--4::after {
+      bottom: 4.5px;
+      right: 2.25px;
+      transform: rotate(45deg);
+    }
+
+    &--5::after {
+      bottom: 2.5px;
+      left: 7.5px;
+      transform: rotate(90deg);
+    }
+
+    &--6::after {
+      bottom: 4.5px;
+      left: 2.25px;
+      transform: rotate(-45deg);
+    }
+
+    &--7::after {
+      top: 9.5px;
+      left: 0;
+    }
+
+    &--8::after {
+      top: 4.5px;
+      left: 2.25px;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

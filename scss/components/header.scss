@@ -7,9 +7,12 @@
   top: 0;
 
   &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-transform: uppercase;
     padding: 1rem 3rem;
-    background-color: black;
+    background-color: $yankees-blue;
     color: white;
     text-align: center;
     font-size: 2.5rem;
@@ -17,10 +20,11 @@
 
   @media screen and (min-width: 800px) {
     grid-template-rows: 1fr;
-    height: 5rem;
+    height: 7rem;
 
     &__title {
       text-align: left;
+      justify-content: left;
     }
   }
 }
@@ -39,14 +43,21 @@
     text-align: center;
     display: block;
     text-decoration: none;
-    color: black;
-    font-size: 1.5rem;
+    color: $pastel-violet;
+    font-size: 2.5rem;
+    padding: 2rem;
+    transition: 0.3s all;
+    width: 100%;
+
+    &:hover {
+      color: $yankees-blue;
+    }
   }
 
   &__link--active,
   &__link--active:link,
   &__link--active:visited {
-    color: $active;
+    color: $yankees-blue;
   }
 
   @media screen and (min-width: 800px) {

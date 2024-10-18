@@ -9,16 +9,16 @@
 
   section {
     padding: 1rem 2rem;
-
-    &:not(:last-of-type) {
-      border-right: 1px solid $dark-grey;
-    }
   }
 
   @media screen and (min-width: 800px) {
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 7rem);
     grid-template-rows: 1fr;
     grid-template-columns: 20rem 1fr minmax(20rem, 0.3fr);
+
+    section:not(:last-of-type) {
+      border-right: 1px solid $dark-grey;
+    }
   }
 }
 
