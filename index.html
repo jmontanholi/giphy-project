@@ -8,7 +8,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/style.css" />
-    <script defer src="js/main.js"></script>
+    <script type="module" defer src="js/configFile.js"></script>
+    <script type="module" defer src="js/main.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -44,7 +45,13 @@
       <!-- Random -->
       <section id="randomSection" class="section randomSection">
         <h2 class="sectionTitle randomSection__title">Random</h2>
-        <div class="randomSection__imagePlaceholder"></div>
+        <div class="randomSection__gifPlaceholder">
+          <div
+            class="gifSkeleton"
+            role="imageSkeleton"
+            aria-hidden="true"
+          ></div>
+        </div>
         <button type="button" class="btn randomSection__btn">
           <i class="fa-solid fa-repeat" aria-hidden="true"></i> next
         </button>

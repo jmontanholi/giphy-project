@@ -1,0 +1,11 @@
+@use "../config.scss" as *;
+
+.gifSkeleton {
+  width: 100%;
+  height: 40vh;
+  border: 1px solid $dark-grey;
+
+  @media screen and (min-width: 800px) {
+    height: 20vh;
+  }
+}
