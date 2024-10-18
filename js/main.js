@@ -9,7 +9,7 @@ const generateGifMarkup = function (data) {
   if (!data) return "";
 
   return `
-    <video class="gifVideo" width="320" height="240" autoplay loop muted>
+    <video class="gifVideo" width="280" autoplay loop muted>
         <source src="${data.images.looping.mp4}" type="video/mp4">
         <p>
             ${
@@ -55,7 +55,7 @@ const renderRandom = async function () {
   try {
     skeleton.insertAdjacentHTML("beforeend", generateLoadingSpinner());
 
-    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}22`);
+    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}2`);
 
     if (!response.ok) {
       const { meta: errorData } = await response.json();

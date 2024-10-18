@@ -7,10 +7,6 @@
   background-color: $grey;
   padding: 2rem 2rem;
 
-  section {
-    padding: 1rem 2rem;
-  }
-
   @media screen and (min-width: 800px) {
     height: calc(100vh - 7rem);
     grid-template-rows: 1fr 1fr;
@@ -33,12 +29,14 @@
 }
 
 .searchSection {
+  padding: 1rem 2rem;
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     grid-column: 1 / -1;
   }
 }
 
 .trendingSection {
+  padding: 1rem 2rem;
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
