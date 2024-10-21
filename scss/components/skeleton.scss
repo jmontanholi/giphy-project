@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 280px;
   height: 30vh;
-  border: 1px solid $purple-navy;
+  border: 1px solid $cyber-grape;
   display: grid;
   align-content: center;
   justify-content: center;
@@ -15,7 +15,7 @@
 
   .skeleton__svg {
     font-size: 4rem;
-    color: $purple-navy;
+    color: $cyber-grape;
   }
 
   @media screen and (min-width: 800px) {

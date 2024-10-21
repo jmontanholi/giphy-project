@@ -1,8 +1,8 @@
 @use "../config.scss" as *;
 
 .btn {
-  border: 1px solid $purple-navy;
-  color: $purple-navy;
+  border: 1px solid $cyber-grape;
+  color: $cyber-grape;
   padding: 1rem 0;
   border-radius: $border-radius-default;
   transition: 0.3s all, box-shadow 1ms;
@@ -13,13 +13,13 @@
   font-size: 1.5rem;
 
   &:hover {
-    background-color: $transparent-purple-navy;
+    background-color: $transparent-cyber-grape;
     color: $yankees-blue;
     border: 1px solid $yankees-blue;
     cursor: pointer;
   }
 
   &:active {
-    box-shadow: inset 5px 5px 15px $transparent-purple-navy;
+    box-shadow: inset 5px 5px 15px $transparent-cyber-grape;
   }
 }
