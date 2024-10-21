@@ -10,6 +10,11 @@
     }
   }
 
+  &__gifPlaceholder {
+    display: flex;
+    justify-content: center;
+  }
+
   &__btn {
     width: 280px;
 

@@ -6,9 +6,9 @@
   background-color: $grey;
 
   @media screen and (min-width: 1200px) {
-    height: calc(100vh - 7rem);
+    height: calc(100vh - $header-size-1200);
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(20rem, 0.3fr);
+    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(30rem, 25vw);
 
     .section:not(:last-of-type) {
       border-right: 1px solid $dark-grey;

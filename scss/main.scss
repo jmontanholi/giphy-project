@@ -6,6 +6,7 @@
 // Sections
 @use "./sections/randomSection.scss";
 @use "./sections/searchSection.scss";
+@use "./sections/trendingSection.scss";
 
 // Components
 @use "./components/header";
@@ -13,3 +14,4 @@
 @use "./components/loading";
 @use "./components/error";
 @use "./components/btn";
+@use "./components/gifVideo";

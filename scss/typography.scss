@@ -7,4 +7,8 @@ html {
 .sectionTitle {
   font-size: 3rem;
   color: $yankees-blue;
+
+  @media screen and (max-width: 1200px) {
+    border-bottom: 1px solid $yankees-blue;
+  }
 }

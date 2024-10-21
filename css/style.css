@@ -10,7 +10,17 @@ html {
   box-sizing: border-box;
   font-size: 40%;
   scroll-behavior: smooth;
-  scroll-padding-top: 15rem;
+  scroll-padding-top: 12rem;
+}
+@media screen and (min-width: 800px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media screen and (min-width: 2500px) {
+  html {
+    font-size: 100%;
+  }
 }
 
 .content {
@@ -20,9 +30,9 @@ html {
 }
 @media screen and (min-width: 1200px) {
   .content {
-    height: calc(100vh - 7rem);
+    height: calc(100vh - 10rem);
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(20rem, 0.3fr);
+    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(30rem, 25vw);
   }
   .content .section:not(:last-of-type) {
     border-right: 1px solid #aaa;
@@ -47,6 +57,11 @@ html {
   font-size: 3rem;
   color: #231942;
 }
+@media screen and (max-width: 1200px) {
+  .sectionTitle {
+    border-bottom: 1px solid #231942;
+  }
+}
 
 .randomSection__gifPlaceholder, .randomSection__btn {
   justify-self: center;
@@ -55,6 +70,10 @@ html {
   .randomSection__gifPlaceholder, .randomSection__btn {
     justify-self: stretch;
   }
+}
+.randomSection__gifPlaceholder {
+  display: flex;
+  justify-content: center;
 }
 .randomSection__btn {
   width: 280px;
@@ -84,6 +103,7 @@ html {
   gap: 5px;
 }
 .searchForm__label {
+  font-size: 2.2rem;
   color: #9f86c0;
 }
 .searchForm__textInput {
@@ -109,6 +129,25 @@ html {
   }
 }
 
+.trendingSection {
+  overflow: hidden;
+}
+
+.trendingResultsContainer {
+  max-height: 100vh;
+  overflow: auto;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .trendingResultsContainer {
+    grid-template-columns: repeat(auto-fill, 300px);
+  }
+}
+
 .header {
   display: grid;
   grid-template-rows: 1fr 0.5fr;
@@ -127,12 +166,20 @@ html {
   text-align: center;
   font-size: 2.5rem;
 }
+@media screen and (min-width: 800px) {
+  .header__title {
+    font-size: 4rem;
+    text-align: left;
+    justify-content: left;
+  }
+}
 @media screen and (min-width: 1200px) {
   .header {
     grid-template-rows: 1fr;
-    height: 7rem;
+    height: 10rem;
   }
   .header__title {
+    font-size: 5rem;
     text-align: left;
     justify-content: left;
   }
@@ -303,6 +350,7 @@ html {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  font-size: 1.5rem;
 }
 .btn:hover {
   background-color: rgba(94, 84, 142, 0.1607843137);
@@ -312,6 +360,11 @@ html {
 }
 .btn:active {
   box-shadow: inset 5px 5px 15px rgba(94, 84, 142, 0.1607843137);
+}
+
+.gifVideo {
+  border-radius: 10px;
+  border: 1px solid #231942;
 }
 
 /*# sourceMappingURL=style.css.map */

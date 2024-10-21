@@ -19,11 +19,20 @@
     font-size: 2.5rem;
   }
 
+  @media screen and (min-width: 800px) {
+    &__title {
+      font-size: 4rem;
+      text-align: left;
+      justify-content: left;
+    }
+  }
+
   @media screen and (min-width: 1200px) {
     grid-template-rows: 1fr;
-    height: 7rem;
+    height: $header-size-1200;
 
     &__title {
+      font-size: 5rem;
       text-align: left;
       justify-content: left;
     }

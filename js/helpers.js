@@ -6,19 +6,20 @@
  */
 export const renderGifMarkup = function (data, parent) {
   if (!data) return "";
-  console.log(data);
 
   const markup = `
-    <video class="gifVideo" width="280" autoplay loop muted>
+    <a href="${data.url}">
+      <video class="gifVideo" width="280" autoplay loop muted>
         <source src="${data.images.looping.mp4}" type="video/mp4">
         <p>
-            ${
-              data.alt_text
-                ? data.alt_text
-                : "Your browser does not support video"
-            }
+          ${
+            data.alt_text
+              ? data.alt_text
+              : "Your browser does not support video"
+          }
         </p>
-    </video>
+      </video>
+    </a>
   `;
 
   parent.insertAdjacentHTML("beforeend", markup);
