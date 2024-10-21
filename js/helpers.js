@@ -1,3 +1,5 @@
+import { TIMEOUT_SEC } from "./configFile.js";
+
 /**
  *
  * @param {object} parent // Node element that should have its content replaced by skeleton
@@ -9,8 +11,8 @@ export const renderGifMarkup = function (data, parent) {
   console.log(data);
 
   const markup = `
-    <a class="gifVideo" href="${data.url}" data-id="${data.id}">
-      <video autoplay loop muted>
+    <a href="${data.url}">
+      <video class="gifVideo" autoplay loop muted data-id="${data.id}">
         <source src="${data.images.looping.mp4}" type="video/mp4">
         <p>
           ${
@@ -24,15 +26,6 @@ export const renderGifMarkup = function (data, parent) {
   `;
 
   parent.insertAdjacentHTML("beforeend", markup);
-  // Find only the video we just added and render loading inside of it so we can wait for the gif to be loaded individually
-  const gif = parent.querySelector(`[data-id]="${data.id}"`);
-  renderLoadingMessage(gif);
-
-  // Once video is loaded we remove the loading spinner
-  gif.querySelector("video").addEventListener("loadeddata", function () {
-    console.log("loaded");
-    gif.querySelector(".loading").remove();
-  });
 };
 
 /**
@@ -41,9 +34,9 @@ export const renderGifMarkup = function (data, parent) {
  *
  * This function appends the loading message to the parent at the end
  */
-export const renderLoadingMessage = function (parent, specificClass = "") {
+export const renderLoadingMessage = function (parent) {
   const markup = `
-    <div class="loading ${specificClass}">
+    <div class="loading">
         <div class="spinner">
         <span class="spinner__bar spinner__bar--1"></span>
         <span class="spinner__bar spinner__bar--2"></span>
@@ -92,4 +85,32 @@ export const renderSkeleton = function (parent) {
   `;
 
   parent.innerHTML = markup;
+};
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error(`Request took too long! Timeout after ${s} second`));
+    }, s * 1000);
+  });
+};
+
+export const AJAX = async function (url) {
+  try {
+    const fetchPro = fetch(url);
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+
+    // Return API error if something goes wrong
+    if (!res.ok) {
+      const { meta: errorData } = await res.json();
+      throw Error(JSON.stringify(errorData));
+    }
+
+    const { data } = await res.json();
+
+    return data;
+  } catch (err) {
+    throw err;
+  }
 };

@@ -4,6 +4,7 @@ import {
   renderLoadingMessage,
   renderGifMarkup,
   renderErrorMessage,
+  AJAX,
 } from "../helpers.js";
 
 // ------------------------------------------------------------ TRENDING SECTION --------------------------------------------------------
@@ -18,17 +19,8 @@ const renderTrending = async function () {
     // Add the loading message with the spinner
     renderLoadingMessage(trendingSection);
 
-    // Call the API to request random gif
-    const response = await fetch(`${BASE_API_URL}/trending?api_key=${API_KEY}`);
-
-    // Return API error if something goes wrong
-    if (!response.ok) {
-      const { meta: errorData } = await response.json();
-      throw Error(JSON.stringify(errorData));
-    }
-
-    // Destructure data from the response
-    const { data } = await response.json();
+    // Call the API to request trending gifs
+    const data = await AJAX(`${BASE_API_URL}/trending?api_key=${API_KEY}`);
 
     // Remove loading message
     trendingSection.querySelector(".loading").remove();

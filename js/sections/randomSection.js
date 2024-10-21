@@ -5,6 +5,7 @@ import {
   renderGifMarkup,
   renderErrorMessage,
   renderSkeleton,
+  AJAX,
 } from "../helpers.js";
 
 // -------------------------------------------------------------- RANDOM SECTION --------------------------------------------------------
@@ -24,17 +25,7 @@ const renderRandom = async function () {
     // Add the loading message with the spinner
     renderLoadingMessage(skeleton);
 
-    // Call the API to request random gif
-    const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}`);
-
-    // Return API error if something goes wrong
-    if (!response.ok) {
-      const { meta: errorData } = await response.json();
-      throw Error(JSON.stringify(errorData));
-    }
-
-    // Destructure data from the response
-    const { data } = await response.json();
+    const data = await AJAX(`${BASE_API_URL}/random?api_key=${API_KEY}`);
 
     // Remove the skeleton and render gif
     skeleton.remove();

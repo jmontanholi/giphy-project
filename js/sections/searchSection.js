@@ -4,6 +4,7 @@ import {
   renderLoadingMessage,
   renderGifMarkup,
   renderErrorMessage,
+  AJAX,
 } from "../helpers.js";
 
 // -------------------------------------------------------------- SEARCH SECTION --------------------------------------------------------
@@ -35,19 +36,9 @@ const renderSearch = async function (search) {
     // Add the loading message with the spinner
     renderLoadingMessage(searchSection);
 
-    // Call the API to request random gif
-    const response = await fetch(
+    const data = await AJAX(
       `${BASE_API_URL}/search?api_key=${API_KEY}&q=${search}`
     );
-
-    // Return API error if something goes wrong
-    if (!response.ok) {
-      const { meta: errorData } = await response.json();
-      throw Error(JSON.stringify(errorData));
-    }
-
-    // Destructure data from the response
-    const { data } = await response.json();
 
     // if we have no results for the query we show the user a message and stop the function
     if (data && data.length === 0) {
