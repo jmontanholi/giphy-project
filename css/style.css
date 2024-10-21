@@ -8,23 +8,15 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 40%;
   scroll-behavior: smooth;
   scroll-padding-top: 15rem;
-  font-family: "Oswald", sans-serif;
 }
 
 .content {
   display: grid;
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
   background-color: #eee;
-}
-.content .section {
-  display: grid;
-  align-content: start;
-  justify-content: center;
-  row-gap: 2rem;
-  padding: 2rem;
 }
 @media screen and (min-width: 1200px) {
   .content {
@@ -37,6 +29,76 @@ html {
   }
   .content .section {
     margin: 2rem 0;
+  }
+}
+
+.section {
+  display: grid;
+  align-content: start;
+  row-gap: 2rem;
+  padding: 2rem;
+}
+
+html {
+  font-family: "Oswald", sans-serif;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+}
+
+.randomSection__gifPlaceholder, .randomSection__btn {
+  justify-self: center;
+}
+@media screen and (min-width: 1200px) {
+  .randomSection__gifPlaceholder, .randomSection__btn {
+    justify-self: stretch;
+  }
+}
+.randomSection__btn {
+  width: 280px;
+}
+@media screen and (min-width: 1200px) {
+  .randomSection__btn {
+    width: 100%;
+  }
+}
+
+.searchSection {
+  max-height: 100vh;
+  display: grid;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.searchForm__label {
+  color: #9f86c0;
+}
+.searchForm__textInput {
+  height: 3.75rem;
+  padding: 1rem;
+}
+.searchForm__btn {
+  height: 3.75rem;
+}
+
+.searchResultsContainer {
+  max-height: 100vh;
+  overflow: auto;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .searchResultsContainer {
+    grid-template-columns: repeat(auto-fill, 300px);
   }
 }
 
@@ -110,8 +172,8 @@ html {
 
 .gifSkeleton {
   width: 100%;
-  min-width: 28rem;
-  height: 40vh;
+  min-width: 280px;
+  height: 30vh;
   border: 1px solid #5e548e;
   display: grid;
   align-content: center;
@@ -127,7 +189,6 @@ html {
 }
 @media screen and (min-width: 800px) {
   .gifSkeleton {
-    height: 30vh;
     min-width: none;
   }
 }
@@ -232,6 +293,10 @@ html {
   padding: 1rem 0;
   border-radius: 4px;
   transition: 0.3s all, box-shadow 1ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 .btn:hover {
   background-color: rgba(94, 84, 142, 0.1607843137);

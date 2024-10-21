@@ -1,9 +1,11 @@
 // Base
 @use "base";
 @use "layout";
+@use "typography";
 
 // Sections
 @use "./sections/randomSection.scss";
+@use "./sections/searchSection.scss";
 
 // Components
 @use "./components/header";

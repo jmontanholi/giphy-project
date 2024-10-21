@@ -6,6 +6,7 @@
  */
 export const renderGifMarkup = function (data, parent) {
   if (!data) return "";
+  console.log(data);
 
   const markup = `
     <video class="gifVideo" width="280" autoplay loop muted>

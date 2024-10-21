@@ -1,0 +1,43 @@
+@use "../colors.scss" as *;
+
+.searchSection {
+  max-height: 100vh;
+  display: grid;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &__label {
+    color: $lavender-purple;
+  }
+
+  &__textInput {
+    height: 3.75rem;
+
+    padding: 1rem;
+  }
+
+  &__btn {
+    height: 3.75rem;
+  }
+}
+
+.searchResultsContainer {
+  max-height: 100vh;
+  overflow: auto;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+
+  gap: 1rem;
+
+  @media screen and (min-width: 800px) {
+    grid-template-columns: repeat(auto-fill, 300px);
+  }
+}

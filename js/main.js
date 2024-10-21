@@ -6,12 +6,16 @@ import {
   renderSkeleton,
 } from "./helpers.js";
 
+// Random section elements
 const randomGifPlaceholder = document.querySelector(
   ".randomSection__gifPlaceholder"
 );
 const randomNextBtn = document.querySelector(".randomSection__btn");
+
+// Search section elements
 const searchForm = document.querySelector(".searchForm");
 const searchInput = searchForm.querySelector(".searchForm__textInput");
+const searchResultsList = document.querySelector(".searchResultsContainer");
 
 // This function requires no parameter and will render a random gif on the random section
 // TODO: FIX API KEY WHEN ALL IS FINISHED
@@ -59,13 +63,57 @@ renderRandom();
  * @param {string} search // Represents the text to be searched
  * This function will render the results of the search on the search section
  */
-const renderSearch = function (search) {};
+const renderSearch = async function (search) {
+  // Clean inner html from previous results
+  searchResultsList.innerHTML = "";
+
+  try {
+    // Add the loading message with the spinner
+    renderLoadingMessage(searchResultsList);
+
+    // Call the API to request random gif
+    const response = await fetch(
+      `${BASE_API_URL}/search?api_key=${API_KEY}&q=${search}`
+    );
+
+    // Return API error if something goes wrong
+    if (!response.ok) {
+      const { meta: errorData } = await response.json();
+      throw Error(JSON.stringify(errorData));
+    }
+
+    // Destructure data from the response
+    const { data } = await response.json();
+
+    // if we have no results for the query we show the user a message and stop the function
+    if (data.length === 0) {
+      searchResultsList.querySelector(".loading").remove();
+
+      searchResultsList.insertAdjacentHTML(
+        "beforeend",
+        "No gifs found for this query"
+      );
+
+      return;
+    }
+
+    // Remove loading message
+    searchResultsList.querySelector(".loading").remove();
+
+    // Render gifs
+    data.forEach((result) => {
+      renderGifMarkup(result, searchResultsList);
+    });
+  } catch (error) {
+    // If something goes wrong we remove the loading and append the error message
+    searchResultsList.querySelector(".loading").remove();
+    renderErrorMessage(searchResultsList);
+  }
+};
 
 // Add event listener to search form so that we can prevent the page reload and render gifs
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const search = searchInput.value;
-  console.log(search);
-
   renderSearch(search);
 });

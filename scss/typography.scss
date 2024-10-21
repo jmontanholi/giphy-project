@@ -1,0 +1,9 @@
+@use "config" as *;
+
+html {
+  font-family: $primary-font;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+}

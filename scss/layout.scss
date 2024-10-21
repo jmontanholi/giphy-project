@@ -5,14 +5,6 @@
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
   background-color: $grey;
 
-  .section {
-    display: grid;
-    align-content: start;
-    justify-content: center;
-    row-gap: 2rem;
-    padding: 2rem;
-  }
-
   @media screen and (min-width: 1200px) {
     height: calc(100vh - 7rem);
     grid-template-rows: 1fr;
@@ -26,4 +18,11 @@
       margin: 2rem 0;
     }
   }
+}
+
+.section {
+  display: grid;
+  align-content: start;
+  row-gap: 2rem;
+  padding: 2rem;
 }

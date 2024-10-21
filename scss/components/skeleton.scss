@@ -2,8 +2,8 @@
 
 .gifSkeleton {
   width: 100%;
-  min-width: 28rem;
-  height: 40vh;
+  min-width: 280px;
+  height: 30vh;
   border: 1px solid $purple-navy;
   display: grid;
   align-content: center;
@@ -19,7 +19,6 @@
   }
 
   @media screen and (min-width: 800px) {
-    height: 30vh;
     min-width: none;
   }
 }

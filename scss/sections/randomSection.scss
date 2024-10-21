@@ -1,4 +1,20 @@
 @use "../colors.scss" as *;
 
 .randomSection {
+  &__gifPlaceholder,
+  &__btn {
+    justify-self: center;
+
+    @media screen and (min-width: 1200px) {
+      justify-self: stretch;
+    }
+  }
+
+  &__btn {
+    width: 280px;
+
+    @media screen and (min-width: 1200px) {
+      width: 100%;
+    }
+  }
 }
