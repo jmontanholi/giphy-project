@@ -13,6 +13,7 @@ const randomGifPlaceholder = document.querySelector(
 const randomNextBtn = document.querySelector(".randomSection__btn");
 
 // Search section elements
+const searchSection = document.querySelector(".searchSection");
 const searchForm = document.querySelector(".searchForm");
 const searchInput = searchForm.querySelector(".searchForm__textInput");
 const searchResultsList = document.querySelector(".searchResultsContainer");
@@ -67,9 +68,16 @@ const renderSearch = async function (search) {
   // Clean inner html from previous results
   searchResultsList.innerHTML = "";
 
+  // Get the message that is already in the container (search something or nothing found)
+  const initialMessage = document.querySelector(
+    ".searchSection__initialMessage"
+  );
+
+  initialMessage && initialMessage.remove();
+
   try {
     // Add the loading message with the spinner
-    renderLoadingMessage(searchResultsList);
+    renderLoadingMessage(searchSection);
 
     // Call the API to request random gif
     const response = await fetch(
@@ -87,18 +95,18 @@ const renderSearch = async function (search) {
 
     // if we have no results for the query we show the user a message and stop the function
     if (data.length === 0) {
-      searchResultsList.querySelector(".loading").remove();
+      searchSection.querySelector(".loading").remove();
 
-      searchResultsList.insertAdjacentHTML(
+      searchSection.insertAdjacentHTML(
         "beforeend",
-        "No gifs found for this query"
+        "<span class='searchSection__initialMessage'>No gifs found for this query</span>"
       );
 
       return;
     }
 
     // Remove loading message
-    searchResultsList.querySelector(".loading").remove();
+    searchSection.querySelector(".loading").remove();
 
     // Render gifs
     data.forEach((result) => {

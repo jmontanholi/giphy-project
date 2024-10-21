@@ -5,6 +5,13 @@
   display: grid;
   justify-content: stretch;
   overflow: hidden;
+
+  &__initialMessage {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: $yankees-blue;
+    text-align: center;
+  }
 }
 
 .searchForm {

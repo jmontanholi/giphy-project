@@ -4,13 +4,13 @@
   border: 1px dashed $purple-navy;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
   color: $yankees-blue;
   display: flex;
   flex-wrap: wrap;
   font-size: 1.5rem;
-  width: 22rem;
 
   p {
     color: inherit;
