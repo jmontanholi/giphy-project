@@ -3,9 +3,16 @@
 .content {
   display: grid;
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
-  row-gap: 2rem;
+  row-gap: 4rem;
   background-color: $grey;
-  padding: 2rem 2rem;
+  // padding: 2rem 2rem;
+
+  .section {
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    row-gap: 2rem;
+  }
 
   @media screen and (min-width: 800px) {
     height: calc(100vh - 7rem);
@@ -28,14 +35,12 @@
 }
 
 .searchSection {
-  padding: 1rem 2rem;
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     grid-column: 1 / -1;
   }
 }
 
 .trendingSection {
-  padding: 1rem 2rem;
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     grid-column: 2 / -1;
     grid-row: 1 / 2;

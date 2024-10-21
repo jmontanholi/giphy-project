@@ -10,16 +10,21 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
-  scroll-padding-top: 9rem;
+  scroll-padding-top: 15rem;
   font-family: "Oswald", sans-serif;
 }
 
 .content {
   display: grid;
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
-  row-gap: 2rem;
+  row-gap: 4rem;
   background-color: #eee;
-  padding: 2rem 2rem;
+}
+.content .section {
+  display: grid;
+  align-content: start;
+  justify-content: center;
+  row-gap: 2rem;
 }
 @media screen and (min-width: 800px) {
   .content {
@@ -33,7 +38,6 @@ html {
 }
 @media screen and (min-width: 1200px) {
   .content {
-    height: calc(100vh - 7rem);
     grid-template-rows: 1fr;
     grid-template-columns: 30rem 1fr minmax(20rem, 0.3fr);
   }
@@ -42,18 +46,12 @@ html {
   }
 }
 
-.searchSection {
-  padding: 1rem 2rem;
-}
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .searchSection {
     grid-column: 1/-1;
   }
 }
 
-.trendingSection {
-  padding: 1rem 2rem;
-}
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .trendingSection {
     grid-column: 2/-1;
@@ -61,12 +59,6 @@ html {
   }
 }
 
-.randomSection {
-  display: grid;
-  align-content: start;
-  justify-content: center;
-  row-gap: 2rem;
-}
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .randomSection {
     grid-column: 1/2;
@@ -135,6 +127,7 @@ html {
 
 .gifSkeleton {
   width: 100%;
+  min-width: 30rem;
   height: 40vh;
   border: 1px solid #5e548e;
   display: grid;

@@ -1,11 +1,6 @@
 @use "../colors.scss" as *;
 
 .randomSection {
-  display: grid;
-  align-content: start;
-  justify-content: center;
-  row-gap: 2rem;
-
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
