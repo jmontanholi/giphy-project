@@ -1,94 +1,20 @@
 import { API_KEY, BASE_API_URL } from "./configFile.js";
+import {
+  renderErrorMessage,
+  renderGifMarkup,
+  renderLoadingMessage,
+  renderSkeleton,
+} from "./helpers.js";
 
 const randomGifPlaceholder = document.querySelector(
   ".randomSection__gifPlaceholder"
 );
 const randomNextBtn = document.querySelector(".randomSection__btn");
+const searchForm = document.querySelector(".searchForm");
+const searchInput = searchForm.querySelector(".searchForm__textInput");
 
-/**
- *
- * @param {object} parent // Node element that should have its content replaced by skeleton
- *
- * This function appends the gif to the parent at the end
- */
-const generateGifMarkup = function (data, parent) {
-  if (!data) return "";
-
-  const markup = `
-    <video class="gifVideo" width="280" autoplay loop muted>
-        <source src="${data.images.looping.mp4}" type="video/mp4">
-        <p>
-            ${
-              data.alt_text
-                ? data.alt_text
-                : "Your browser does not support video"
-            }
-        </p>
-    </video>
-  `;
-
-  parent.insertAdjacentHTML("beforeend", markup);
-};
-
-/**
- *
- * @param {object} parent // Node element that should have its content replaced by skeleton
- *
- * This function appends the loading message to the parent at the end
- */
-const generateLoadingMessage = function (parent) {
-  const markup = `
-    <div class="loading">
-        <div class="spinner">
-        <span class="spinner__bar spinner__bar--1"></span>
-        <span class="spinner__bar spinner__bar--2"></span>
-        <span class="spinner__bar spinner__bar--3"></span>
-        <span class="spinner__bar spinner__bar--4"></span>
-        <span class="spinner__bar spinner__bar--5"></span>
-        <span class="spinner__bar spinner__bar--6"></span>
-        <span class="spinner__bar spinner__bar--7"></span>
-        <span class="spinner__bar spinner__bar--8"></span>
-        </div>
-        <p>Giphy's will be here in a jiffy...</p>
-    </div>
-  `;
-
-  parent.insertAdjacentHTML("beforeend", markup);
-};
-
-/**
- *
- * @param {object} parent // Node element that should have its content replaced by skeleton
- *
- * This function appends the error message to the parent at the end
- */
-const generateErrorMessage = function (parent) {
-  const markup = `
-    <div class="error">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <p>Oh no, something went snap!</p>
-    </div>
-  `;
-
-  parent.insertAdjacentHTML("beforeend", markup);
-};
-
-/**
- *
- * @param {object} parent // Node element that should have its content replaced by skeleton
- *
- * This function replaces parent content with Skeleton
- */
-const renderSkeleton = function (parent) {
-  const markup = `
-    <div class="gifSkeleton" aria-hidden="true">
-      <i class="fa-regular fa-image skeleton__svg"> </i>
-    </div>
-  `;
-
-  parent.innerHTML = markup;
-};
-
+// This function requires no parameter and will render a random gif on the random section
+// TODO: FIX API KEY WHEN ALL IS FINISHED
 const renderRandom = async function () {
   // First add to the parent or replace the current gif with a skeleton
   renderSkeleton(randomGifPlaceholder);
@@ -98,7 +24,7 @@ const renderRandom = async function () {
 
   try {
     // Add the loading message with the spinner
-    generateLoadingMessage(skeleton);
+    renderLoadingMessage(skeleton);
 
     // Call the API to request random gif
     const response = await fetch(`${BASE_API_URL}/random?api_key=${API_KEY}2`);
@@ -114,11 +40,11 @@ const renderRandom = async function () {
 
     // Remove the skeleton and render gif
     skeleton.remove();
-    generateGifMarkup(data, randomGifPlaceholder);
+    renderGifMarkup(data, randomGifPlaceholder);
   } catch (error) {
     // If something goes wrong we remove the loading and append the error message
     skeleton.querySelector(".loading").remove();
-    generateErrorMessage(skeleton);
+    renderErrorMessage(skeleton);
   }
 };
 
@@ -126,4 +52,20 @@ const renderRandom = async function () {
 randomNextBtn.addEventListener("click", renderRandom);
 
 // Call render random a first time when page is loaded
-// renderRandom();
+renderRandom();
+
+/**
+ *
+ * @param {string} search // Represents the text to be searched
+ * This function will render the results of the search on the search section
+ */
+const renderSearch = function (search) {};
+
+// Add event listener to search form so that we can prevent the page reload and render gifs
+searchForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const search = searchInput.value;
+  console.log(search);
+
+  renderSearch(search);
+});

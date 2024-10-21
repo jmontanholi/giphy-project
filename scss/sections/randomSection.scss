@@ -1,8 +1,4 @@
 @use "../colors.scss" as *;
 
 .randomSection {
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
 }
