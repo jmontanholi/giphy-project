@@ -4,12 +4,14 @@
   border: 1px dashed $red;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
   color: $red;
   display: flex;
   flex-wrap: wrap;
   font-size: 1.7rem;
+  grid-column: 1 / -1;
 
   p,
   i {

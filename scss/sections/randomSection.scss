@@ -5,7 +5,7 @@
   &__btn {
     justify-self: center;
 
-    @media screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1200px) {
       justify-self: stretch;
     }
   }
@@ -16,9 +16,17 @@
   }
 
   &__btn {
-    width: 280px;
+    width: 260px;
 
-    @media screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  .gifVideo {
+    width: 100%;
+
+    @media only screen and (min-width: 1200px) {
       width: 100%;
     }
   }

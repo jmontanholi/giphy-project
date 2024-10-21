@@ -24,7 +24,12 @@ const renderSearch = async function (search) {
     ".searchSection__initialMessage"
   );
 
+  // If there is already an initial message we remove it
   initialMessage && initialMessage.remove();
+
+  // Check to see if there is already an error in place and if so, remove it
+  const error = searchSection.querySelector(".error");
+  error && error.remove();
 
   try {
     // Add the loading message with the spinner
@@ -45,7 +50,7 @@ const renderSearch = async function (search) {
     const { data } = await response.json();
 
     // if we have no results for the query we show the user a message and stop the function
-    if (data.length === 0) {
+    if (data && data.length === 0) {
       searchSection.querySelector(".loading").remove();
 
       searchSection.insertAdjacentHTML(
@@ -65,8 +70,8 @@ const renderSearch = async function (search) {
     });
   } catch (error) {
     // If something goes wrong we remove the loading and append the error message
-    searchResultsList.querySelector(".loading").remove();
-    renderErrorMessage(searchResultsList);
+    searchSection.querySelector(".loading").remove();
+    renderErrorMessage(searchSection);
   }
 };
 

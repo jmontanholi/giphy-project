@@ -7,6 +7,7 @@ import {
 } from "../helpers.js";
 
 // ------------------------------------------------------------ TRENDING SECTION --------------------------------------------------------
+const trendingSection = document.querySelector(".trendingSection");
 const trendingResultsContainer = document.querySelector(
   ".trendingResultsContainer"
 );
@@ -15,7 +16,7 @@ const trendingResultsContainer = document.querySelector(
 const renderTrending = async function () {
   try {
     // Add the loading message with the spinner
-    renderLoadingMessage(trendingResultsContainer);
+    renderLoadingMessage(trendingSection);
 
     // Call the API to request random gif
     const response = await fetch(`${BASE_API_URL}/trending?api_key=${API_KEY}`);
@@ -30,7 +31,7 @@ const renderTrending = async function () {
     const { data } = await response.json();
 
     // Remove loading message
-    trendingResultsContainer.querySelector(".loading").remove();
+    trendingSection.querySelector(".loading").remove();
 
     // Render gifs
     data.forEach((result) => {
@@ -38,8 +39,8 @@ const renderTrending = async function () {
     });
   } catch (error) {
     // If something goes wrong we remove the loading and append the error message
-    trendingResultsContainer.querySelector(".loading").remove();
-    renderErrorMessage(trendingResultsContainer);
+    trendingSection.querySelector(".loading").remove();
+    renderErrorMessage(trendingSection);
   }
 };
 

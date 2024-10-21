@@ -10,6 +10,7 @@ randomNextBtn.addEventListener("click", renderRandom);
 // Call render random a first time when page is loaded
 renderRandom();
 
+// Get search form and input to handle submit
 const searchForm = document.querySelector(".searchForm");
 const searchInput = searchForm.querySelector(".searchForm__textInput");
 

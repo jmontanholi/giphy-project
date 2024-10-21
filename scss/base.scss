@@ -10,15 +10,15 @@
 
 html {
   box-sizing: border-box;
-  font-size: 40%; // 6.4px
+  font-size: 50%; // 8px
   scroll-behavior: smooth;
   scroll-padding-top: 12rem;
 
-  @media screen and (min-width: 800px) {
+  @media only screen and (min-width: 800px) {
     font-size: 62.5%; // 10px
   }
 
-  @media screen and (min-width: 2500px) {
+  @media only screen and (min-width: 2500px) {
     font-size: 100%; // 16px
   }
 }

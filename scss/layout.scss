@@ -5,10 +5,10 @@
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
   background-color: $grey;
 
-  @media screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1200px) {
     height: calc(100vh - $header-size-1200);
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(30rem, 25vw);
+    grid-template-columns: minmax(30rem, 20vw) 1fr 25rem;
 
     .section:not(:last-of-type) {
       border-right: 1px solid $dark-grey;

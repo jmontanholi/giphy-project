@@ -19,7 +19,7 @@
     font-size: 2.5rem;
   }
 
-  @media screen and (min-width: 800px) {
+  @media only screen and (min-width: 800px) {
     &__title {
       font-size: 4rem;
       text-align: left;
@@ -27,7 +27,7 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1200px) {
     grid-template-rows: 1fr;
     height: $header-size-1200;
 
@@ -63,7 +63,7 @@
       color: $yankees-blue;
     }
 
-    @media screen and (min-width: 800px) {
+    @media only screen and (min-width: 800px) {
       font-size: 2rem;
     }
   }
@@ -79,7 +79,7 @@
     color: $yankees-blue;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1200px) {
     display: none;
   }
 }

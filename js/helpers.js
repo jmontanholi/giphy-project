@@ -6,10 +6,11 @@
  */
 export const renderGifMarkup = function (data, parent) {
   if (!data) return "";
+  console.log(data);
 
   const markup = `
-    <a href="${data.url}">
-      <video class="gifVideo" width="280" autoplay loop muted>
+    <a class="gifVideo" href="${data.url}" data-id="${data.id}">
+      <video autoplay loop muted>
         <source src="${data.images.looping.mp4}" type="video/mp4">
         <p>
           ${
@@ -23,6 +24,15 @@ export const renderGifMarkup = function (data, parent) {
   `;
 
   parent.insertAdjacentHTML("beforeend", markup);
+  // Find only the video we just added and render loading inside of it so we can wait for the gif to be loaded individually
+  const gif = parent.querySelector(`[data-id]="${data.id}"`);
+  renderLoadingMessage(gif);
+
+  // Once video is loaded we remove the loading spinner
+  gif.querySelector("video").addEventListener("loadeddata", function () {
+    console.log("loaded");
+    gif.querySelector(".loading").remove();
+  });
 };
 
 /**
@@ -31,9 +41,9 @@ export const renderGifMarkup = function (data, parent) {
  *
  * This function appends the loading message to the parent at the end
  */
-export const renderLoadingMessage = function (parent) {
+export const renderLoadingMessage = function (parent, specificClass = "") {
   const markup = `
-    <div class="loading">
+    <div class="loading ${specificClass}">
         <div class="spinner">
         <span class="spinner__bar spinner__bar--1"></span>
         <span class="spinner__bar spinner__bar--2"></span>

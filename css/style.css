@@ -8,16 +8,16 @@
 
 html {
   box-sizing: border-box;
-  font-size: 40%;
+  font-size: 50%;
   scroll-behavior: smooth;
   scroll-padding-top: 12rem;
 }
-@media screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   html {
     font-size: 62.5%;
   }
 }
-@media screen and (min-width: 2500px) {
+@media only screen and (min-width: 2500px) {
   html {
     font-size: 100%;
   }
@@ -28,11 +28,11 @@ html {
   grid-template-rows: 1fr repeat(2, calc(100vh - 11rem));
   background-color: #eee;
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .content {
     height: calc(100vh - 10rem);
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(30rem, 25vw) 1fr minmax(30rem, 25vw);
+    grid-template-columns: minmax(30rem, 20vw) 1fr 25rem;
   }
   .content .section:not(:last-of-type) {
     border-right: 1px solid #aaa;
@@ -57,7 +57,7 @@ html {
   font-size: 3rem;
   color: #231942;
 }
-@media screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
   .sectionTitle {
     border-bottom: 1px solid #231942;
   }
@@ -66,7 +66,7 @@ html {
 .randomSection__gifPlaceholder, .randomSection__btn {
   justify-self: center;
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .randomSection__gifPlaceholder, .randomSection__btn {
     justify-self: stretch;
   }
@@ -76,10 +76,18 @@ html {
   justify-content: center;
 }
 .randomSection__btn {
-  width: 280px;
+  width: 260px;
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .randomSection__btn {
+    width: 100%;
+  }
+}
+.randomSection .gifVideo {
+  width: 100%;
+}
+@media only screen and (min-width: 1200px) {
+  .randomSection .gifVideo {
     width: 100%;
   }
 }
@@ -123,7 +131,7 @@ html {
   grid-template-columns: repeat(auto-fill, 300px);
   gap: 1rem;
 }
-@media screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   .searchResultsContainer {
     grid-template-columns: repeat(auto-fill, 300px);
   }
@@ -139,12 +147,16 @@ html {
   display: grid;
   justify-content: center;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 200px);
   gap: 1rem;
 }
-@media screen and (min-width: 800px) {
+.trendingResultsContainer .gifVideo {
+  width: 100%;
+  min-width: 10rem;
+}
+@media only screen and (min-width: 800px) {
   .trendingResultsContainer {
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(auto-fill, 200px);
   }
 }
 
@@ -166,14 +178,14 @@ html {
   text-align: center;
   font-size: 2.5rem;
 }
-@media screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   .header__title {
     font-size: 4rem;
     text-align: left;
     justify-content: left;
   }
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .header {
     grid-template-rows: 1fr;
     height: 10rem;
@@ -206,7 +218,7 @@ html {
 .navbar__link:hover, .navbar__link:link:hover, .navbar__link:visited:hover {
   color: #231942;
 }
-@media screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   .navbar__link, .navbar__link:link, .navbar__link:visited {
     font-size: 2rem;
   }
@@ -218,7 +230,7 @@ html {
 .navbar__link--active, .navbar__link--active:link, .navbar__link--active:visited {
   color: #231942;
 }
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .navbar {
     display: none;
   }
@@ -226,25 +238,20 @@ html {
 
 .gifSkeleton {
   width: 100%;
-  min-width: 280px;
+  min-width: 260px;
   height: 30vh;
   border: 1px solid #51487a;
-  display: grid;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  justify-items: center;
   row-gap: 1rem;
-  padding: 2rem;
+  padding: 16px;
   border-radius: 4px;
 }
 .gifSkeleton .skeleton__svg {
   font-size: 4rem;
   color: #51487a;
-}
-@media screen and (min-width: 800px) {
-  .gifSkeleton {
-    min-width: none;
-  }
 }
 
 .loading {
@@ -258,6 +265,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   font-size: 1.5rem;
+  grid-column: 1/-1;
 }
 .loading p {
   color: inherit;
@@ -328,12 +336,14 @@ html {
   border: 1px dashed rgb(255, 107, 8);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
   color: rgb(255, 107, 8);
   display: flex;
   flex-wrap: wrap;
   font-size: 1.7rem;
+  grid-column: 1/-1;
 }
 .error p,
 .error i {
@@ -365,6 +375,7 @@ html {
 .gifVideo {
   border-radius: 10px;
   border: 1px solid #231942;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
